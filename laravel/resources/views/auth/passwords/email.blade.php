@@ -5,7 +5,7 @@
 @section('content')
 <div class="login-box">
     <div class="login-logo">
-        <a href="/"><b>SIPMM </b>ADMIN</a>
+        <a href="{{ url('/') }}"><b>SIPMM </b>ADMIN</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
@@ -43,7 +43,7 @@
                 @csrf
             </form>
         </div>
-        <a href="/login">Login</a>
+        <a href="{{ url('login') }}">Login</a>
     </div>
 </div>
 <!-- /.login-box -->
