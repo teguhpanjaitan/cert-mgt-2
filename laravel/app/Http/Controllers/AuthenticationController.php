@@ -20,7 +20,7 @@ class AuthenticationController extends Controller
     {
         // validate the info, create rules for the inputs
         $rules = array(
-            'loginid'    => 'required|alphaNum|min:5', // make sure the email is an actual email
+            'loginid'    => 'required|min:5', // make sure the email is an actual email
             'userpassword' => 'required|alphaNum|min:5' // password can only be alphanumeric and has to be greater than 3 characters
         );
 

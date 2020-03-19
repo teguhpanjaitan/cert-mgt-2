@@ -31,7 +31,7 @@ class AccountController extends Controller
 
         if ($request->isMethod('post')) {
             $rules = array(
-                'login_id'    => 'required|unique:users|alphaNum|min:5',
+                'login_id'    => 'required|unique:users|min:5',
                 'inputPassword3' => 'required|alphaNum|min:5',
                 'fullname' => 'required|min:5',
                 'inputEmail3' => 'required|email',
@@ -86,7 +86,6 @@ class AccountController extends Controller
             $rules = array(
                 'login_id'    => [
                     'required',
-                    'alphaNum',
                     'min:5',
                     Rule::unique('users')->ignore($request->id),
                 ],

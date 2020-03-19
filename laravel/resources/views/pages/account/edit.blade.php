@@ -61,7 +61,7 @@
     @csrf
     <!-- /.box-body -->
     <div class="box-footer">
-        <a href="/account" class="btn btn-default">Cancel</a>
+        <a href="{{ url('account') }}" class="btn btn-default">Cancel</a>
         <button type="submit" name="save_account" class="btn btn-info pull-right">Save</button>
     </div>
     <!-- /.box-footer -->
