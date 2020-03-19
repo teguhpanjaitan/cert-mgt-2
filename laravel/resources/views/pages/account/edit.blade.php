@@ -1,4 +1,4 @@
-<form class="form-horizontal" action="account/update" method="post" enctype="multipart/form-data">
+<form class="form-horizontal" action="{{ url('account/update') }}" method="post" enctype="multipart/form-data">
     <div class="box-body">
         <div class="form-group">
             <label for="userrole" class="col-sm-2 control-label">User Role</label>

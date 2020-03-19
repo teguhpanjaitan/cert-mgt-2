@@ -1,4 +1,4 @@
-<form class="form-horizontal" action="/certificate/update" method="post" enctype="multipart/form-data">
+<form class="form-horizontal" action="{{ url('/certificate/update') }}" method="post" enctype="multipart/form-data">
     <div class="box-body">
         <div class="form-group">
             <label for="certno" class="col-sm-2 control-label">Credential Reference</label>

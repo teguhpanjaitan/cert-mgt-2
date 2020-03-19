@@ -29,7 +29,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form class="form-horizontal" action="certificate/add" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" action="{{ url('certificate/add') }}" method="post" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="certno" class="col-sm-2 control-label">Credential Reference</label>
@@ -74,7 +74,7 @@
                     @csrf
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="certificate" class="btn btn-default">Cancel</a>
+                        <a href="{{ url('certificate') }}" class="btn btn-default">Cancel</a>
                         <button type="submit" name="save_cert" class="btn btn-info pull-right">Save</button>
                     </div>
                     <!-- /.box-footer -->

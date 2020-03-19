@@ -30,7 +30,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form class="form-horizontal" action="account/add" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" action="{{ url('account/add') }}" method="post" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="userrole" class="col-sm-2 control-label">User Role</label>

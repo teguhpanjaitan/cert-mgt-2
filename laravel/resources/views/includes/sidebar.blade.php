@@ -10,7 +10,7 @@
             @else
         <li>
             @endif
-            <a href="">
+            <a href="{{ url('') }}">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             </a>
         </li>
@@ -21,7 +21,7 @@
             @else
         <li>
             @endif
-            <a href="certificate">
+            <a href="{{ url('certificate') }}">
                 <i class="fa fa-th"></i> <span>Certification Management</span>
             </a>
         </li>
@@ -31,7 +31,7 @@
             @else
         <li>
             @endif
-            <a href="account">
+            <a href="{{ url('account') }}">
                 <i class="fa fa-user"></i><span>Account Management</span>
             </a>
 

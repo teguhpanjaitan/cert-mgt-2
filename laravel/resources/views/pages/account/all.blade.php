@@ -18,7 +18,7 @@
         Manage Accounts
     </h1>
     <div class="breadcrumb">
-        <a href="account/add" class="btn btn-block btn-primary"><i class="fa fa-user"></i> New Account</a><br>
+        <a href="{{ url('account/add') }}" class="btn btn-block btn-primary"><i class="fa fa-user"></i> New Account</a><br>
     </div>
 </section>
 <!-- Main content -->

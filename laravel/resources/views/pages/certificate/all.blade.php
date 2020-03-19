@@ -17,7 +17,7 @@
         Academic Certificates
     </h1>
     <div class="breadcrumb">
-        <a href="certificate/add" class="btn btn-block btn-primary"><i class="fa fa-th"></i> New Certificate</a><br>
+        <a href="{{ url('certificate/add') }}" class="btn btn-block btn-primary"><i class="fa fa-th"></i> New Certificate</a><br>
     </div>
 </section>
 <!-- Main content -->
