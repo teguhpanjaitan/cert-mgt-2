@@ -6,7 +6,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        SIPMM Administration Portal
+        WCI Administration Portal
     </h1>
     <div class="breadcrumb"></div>
 

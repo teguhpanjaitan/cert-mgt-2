@@ -1,9 +1,9 @@
 <!-- Logo -->
 <a href="{{ url('') }}" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini"><b>SIPMM</b></span>
+    <span class="logo-mini"><b>WCI</b></span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>SIPMM</b> ADMIN</span>
+    <span class="logo-lg"><b>WCI</b> ADMIN</span>
 </a>
 <!-- Header Navbar: style can be found in header.less -->
 <nav class="navbar navbar-static-top">
