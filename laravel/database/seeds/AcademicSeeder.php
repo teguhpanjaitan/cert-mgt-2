@@ -27,7 +27,8 @@ class AcademicSeeder extends Seeder
             'certified' => 'WORLD CERTIFICATION INSTITUTE',
             'updated_by' => '1',
             'created_at' => $now,
-            'updated_at' => $now
+            'updated_at' => $now,
+            'deleted' => '0'
         ]);
 
         Academic::create([
@@ -39,7 +40,8 @@ class AcademicSeeder extends Seeder
             'certified' => 'WORLD CERTIFICATION INSTITUTE',
             'updated_by' => '1',
             'created_at' => $now,
-            'updated_at' => $now
+            'updated_at' => $now,
+            'deleted' => '0'
         ]);
 
         Academic::create([
@@ -51,7 +53,8 @@ class AcademicSeeder extends Seeder
             'certified' => 'Credential Conferment Board',
             'updated_by' => '1',
             'created_at' => $now,
-            'updated_at' => $now
+            'updated_at' => $now,
+            'deleted' => '0'
         ]);
     }
 }

@@ -23,6 +23,7 @@ class CreateAcademicsTable extends Migration
             $table->string("certified",250);
             $table->unsignedBigInteger("updated_by");
             $table->timestamps();
+            $table->unsignedTinyInteger("deleted");
         });
     }
 
