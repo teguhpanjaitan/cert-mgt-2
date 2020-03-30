@@ -4,47 +4,60 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Certificate;
+use App\Academic as Certificate;
+use \Carbon\Carbon;
 
 class FrontendCertController extends Controller
 {
     //
     public function index()
     {
-        return view('pages/frontend');
+        return view('pages/frontend/checker');
     }
 
-    public function find()
+    public function result()
     {
+        return view('pages/frontend/result');
     }
 
-    public function result(Request $request)
+    public function find(Request $request)
     {
         if ($request->ajaxaction == 'checkcertificate') {
             $certNo = $request->certificatenumber;
             if (!empty($certNo)) {
                 $rules = array(
-                    'certno' => 'required|numeric|min:10',
+                    'certificatenumber' => 'required|numeric|min:10',
                 );
-    
-                $validator = Validator::make($request->certificatenumber, $rules);
+
+                $validator = Validator::make(["certificatenumber" => $request->certificatenumber], $rules);
 
                 if ($validator->fails()) {
-                    $result = ['success' => false, 'msg' => '', 'errors' => ['code' => '60','msg' => $validator->errors()->first()]];
-                }
-                else{
-                    $certificate = Certificate::find($certNo);
+                    $result = ['success' => false, 'msg' => '', 'errors' => ['code' => '60', 'msg' => $validator->errors()->first()]];
+                } else {
+                    $certificate = Certificate::where('number', '=', $this->convertCertNumber($certNo))->first();
 
-                    if(!empty($certificate)){
-                        $result = ['success' => true, 'msg' => ''];
-                    }
-                    else{
-                        $result = ['success' => false, 'msg' => '', 'errors' => ['code' => '60','msg' => 'Certificate not found']];
+                    if (!empty($certificate)) {
+                        $date = \Carbon\Carbon::parse($certificate->date)->format('d F Y');
+                        $result = ['success' => true, 'msg' => '', "errors" => "", "Name" => $certificate->name, "Date12" => $date, "type" => $certificate->type, "Number" => $certificate->number, "Awarded" => $certificate->awarded, "Certified" => $certificate->certified];
+                    } else {
+                        $result = ['success' => false, 'msg' => '', 'errors' => ['code' => '60', 'msg' => 'Certificate not found']];
                     }
                 }
 
-                return response($result,200);
+                return response($result, 200);
             }
         }
+    }
+
+    private function convertCertNumber($number = "")
+    {
+        //format 1601-0005-49
+        if (ctype_digit($number) && strlen($number) == 10) {
+            $number = substr($number, 0, 4) . '-' .
+                substr($number, 4, 4) . '-' .
+                substr($number, 8);
+        }
+
+        return $number;
     }
 }

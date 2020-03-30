@@ -43,6 +43,6 @@ Route::get('/home', function () {
     return redirect('/');
 });
 
-Route::get('/frontend/academiccertificatechecker','FrontendCertController@index');
-Route::get('/frontend/academiccertificatecheckerresultpage','FrontendCertController@result');
-Route::post('/academic/ajax','FrontendCertController@find');
+// Route::get('/frontend/academiccertificatechecker','FrontendCertController@index');
+// Route::get('/frontend/academiccertificatecheckerresultpage','FrontendCertController@result');
+// Route::post('/academic/ajax','FrontendCertController@find');
