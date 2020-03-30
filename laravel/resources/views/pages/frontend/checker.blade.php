@@ -9,7 +9,7 @@
     }
 </style>
 
-<form class="academiccertificatecheckerform">
+<form class="academiccertificatecheckerform" action="/academic-verification/">
     <div class="form-group">
         Please enter the 10-digit number to authenticate the Credential that is certified by World Certification
         Institute.
