@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\Certificate;
+use App\Academic as Certificate;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
