@@ -32,10 +32,10 @@
                 <form class="form-horizontal" action="{{ url('certificate/add') }}" method="post" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="certno" class="col-sm-2 control-label">Credential Reference</label>
+                            <label for="certno" class="col-sm-2 control-label">Certificate Number</label>
                             <div class="col-sm-10">
                                 <input class="form-control c_validate" data-valid="cred_reference" id="certno"
-                                    name="certno" placeholder="Credential Reference" type="text" required=""
+                                    name="certno" placeholder="Certificate Number" type="text" required=""
                                     value="{{ old('certno') }}">
                             </div>
                         </div>
@@ -56,18 +56,26 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="awardname" class="col-sm-2 control-label">Name of Award</label>
+                            <label for="type" class="col-sm-2 control-label">Type</label>
                             <div class="col-sm-10">
-                                <input class="form-control" id="awardname" name="awardname" placeholder="Name of Award"
-                                    type="text" required="" value="{{ old('awardname') }}">
+                                <input class="form-control" id="type" name="type" placeholder="Type"
+                                    type="text" required="" value="{{ old('type') }}">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="natureofaward" class="col-sm-2 control-label">Nature of Award</label>
+                            <label for="awarded" class="col-sm-2 control-label">Awarded</label>
                             <div class="col-sm-10">
-                                <input class="form-control" id="natureofaward" name="natureofaward"
-                                    placeholder="Nature of Award" type="text" required=""
-                                    value="{{ old('natureofaward') }}">
+                                <input class="form-control" id="awarded" name="awarded"
+                                    placeholder="Awarded" type="text" required=""
+                                    value="{{ old('awarded') }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="certified" class="col-sm-2 control-label">Certified</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="certified" name="certified"
+                                    placeholder="Certified" type="text" required=""
+                                    value="{{ old('certified') }}">
                             </div>
                         </div>
                     </div>

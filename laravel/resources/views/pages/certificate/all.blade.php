@@ -17,7 +17,8 @@
         Academic Certificates
     </h1>
     <div class="breadcrumb">
-        <a href="{{ url('certificate/add') }}" class="btn btn-block btn-primary"><i class="fa fa-th"></i> New Certificate</a><br>
+        <a href="{{ url('certificate/add') }}" class="btn btn-block btn-primary"><i class="fa fa-th"></i> New
+            Certificate</a><br>
     </div>
 </section>
 <!-- Main content -->
@@ -36,12 +37,13 @@
                     <table id="table" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Serial No</th>
-                                <th>Credential Reference</th>
+                                <th>Number</th>
+                                <th>Cert. Number</th>
                                 <th>Date of Award</th>
                                 <th>Name Recipient</th>
-                                <th>Name of Award</th>
-                                <th>Nature of Award</th>
+                                <th>Type</th>
+                                <th>Awarded</th>
+                                <th>Certified</th>
                                 @if ($role === "admin")
                                 <th style="min-width:65px">Action</th>
                                 @endif
@@ -51,11 +53,12 @@
                             @foreach ($certificates as $certificate)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $certificate->cred_reference }}</td>
-                                <td>{{ \Carbon\Carbon::parse($certificate->awarded_date)->format('d-M-Y')}}</td>
-                                <td>{{ $certificate->recipient }}</td>
-                                <td>{{ $certificate->name_of_award }}</td>
-                                <td>{{ $certificate->nature_of_award }}</td>
+                                <td>{{ $certificate->number }}</td>
+                                <td>{{ \Carbon\Carbon::parse($certificate->date)->format('d-M-Y')}}</td>
+                                <td>{{ $certificate->name }}</td>
+                                <td>{{ $certificate->type }}</td>
+                                <td>{{ $certificate->awarded }}</td>
+                                <td>{{ $certificate->certified }}</td>
                                 @if ($role === "admin")
                                 <td>
                                     <a href="#" data-toggle="modal" data-target="#editmodel"
@@ -74,12 +77,13 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Serial No</th>
-                                <th>Credential Reference</th>
+                                <th>Number</th>
+                                <th>Cert. Number</th>
                                 <th>Date of Award</th>
                                 <th>Name Recipient</th>
-                                <th>Name of Award</th>
-                                <th>Nature of Award</th>
+                                <th>Type</th>
+                                <th>Awarded</th>
+                                <th>Certified</th>
                                 @if ($role === "admin")
                                 <th>Action</th>
                                 @endif

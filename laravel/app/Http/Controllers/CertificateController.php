@@ -23,11 +23,12 @@ class CertificateController extends Controller
     {
         if ($request->isMethod('post')) {
             $rules = array(
-                'certno' => 'required|numeric|min:5',
+                'certno' => 'required|min:5',
                 'dateawarded' => 'required|date_format:Y-m-d',
                 'recipient' => 'required|min:3',
-                'awardname' => 'required|min:5',
-                'natureofaward' => 'required|min:5',
+                'type' => 'required|min:5',
+                'awarded' => 'required|min:5',
+                'certified' => 'required|min:5',
             );
 
             $validator = Validator::make($request->all(), $rules);
@@ -37,12 +38,14 @@ class CertificateController extends Controller
             }
 
             Certificate::create([
-                'cred_reference' => $request->certno,
-                'awarded_date' => $request->dateawarded,
-                'recipient' => $request->recipient,
-                'name_of_award' => $request->awardname,
-                'nature_of_award' => $request->natureofaward,
-                'updated_by' => Auth::id()
+                'number' => $request->certno,
+                'date' => $request->dateawarded,
+                'name' => $request->recipient,
+                'type' => $request->type,
+                'awarded' => $request->awarded,
+                'certified' => $request->certified,
+                'updated_by' => Auth::id(),
+                'deleted' => '0'
             ]);
             return redirect(route('certificate.all'));
         } else {
@@ -52,28 +55,29 @@ class CertificateController extends Controller
 
     public function edit($id)
     {
-        if(Auth::user()->user_role != "admin"){
+        if (Auth::user()->user_role != "admin") {
             return view('pages.notauthorized');
         }
 
         $certificate = Certificate::findOrFail($id);
         $user = User::find($certificate->updated_by);
-        return view('pages.certificate.edit', ['certificate' => $certificate,'user' => $user]);
+        return view('pages.certificate.edit', ['certificate' => $certificate, 'user' => $user]);
     }
 
     public function update(Request $request)
     {
-        if(Auth::user()->user_role != "admin"){
+        if (Auth::user()->user_role != "admin") {
             return view('pages.notauthorized');
         }
 
         if ($request->isMethod('post')) {
             $rules = array(
-                'certno' => 'required|numeric|min:5',
+                'certno' => 'required|min:5',
                 'dateawarded' => 'required|date_format:Y-m-d',
                 'recipient' => 'required|min:3',
-                'awardname' => 'required|min:5',
-                'natureofaward' => 'required|min:5',
+                'type' => 'required|min:5',
+                'awarded' => 'required|min:5',
+                'certified' => 'required|min:5'
             );
 
             $validator = Validator::make($request->all(), $rules);
@@ -83,11 +87,12 @@ class CertificateController extends Controller
             }
 
             Certificate::where('id', $request->id)->update([
-                'cred_reference' => $request->certno,
-                'awarded_date' => $request->dateawarded,
-                'recipient' => $request->recipient,
-                'name_of_award' => $request->awardname,
-                'nature_of_award' => $request->natureofaward,
+                'number' => $request->certno,
+                'date' => $request->dateawarded,
+                'name' => $request->recipient,
+                'type' => $request->type,
+                'awarded' => $request->awarded,
+                'certified' => $request->certified,
                 'updated_by' => Auth::id()
             ]);
         }
@@ -97,7 +102,7 @@ class CertificateController extends Controller
 
     public function delete($id)
     {
-        if(Auth::user()->user_role != "admin"){
+        if (Auth::user()->user_role != "admin") {
             return view('pages.notauthorized');
         }
 
