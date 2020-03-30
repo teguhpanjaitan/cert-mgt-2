@@ -48,6 +48,29 @@ class FrontendCertController extends Controller
         }
     }
 
+    public function handleScript($scriptname)
+    {
+        switch ($scriptname) {
+            case 'certificatechecker':
+                $contents = view('javascript/certificatechecker_js');
+                break;
+            case 'membershipchecker':
+                $contents = view('javascript/membershipchecker_js');
+                break;
+            case 'academiccertificatechecker':
+                $contents = view('javascript/academiccertificatechecker_js');
+                break;
+            case 'common':
+                $contents = view('javascript/common_js');
+                break;
+            default:
+                $contents = "alert('script not found - $scriptname');";
+                break;
+        }
+
+        return response($contents)->header('Content-Type', 'application/javascript');
+    }
+
     private function convertCertNumber($number = "")
     {
         //format 1601-0005-49
