@@ -25,7 +25,7 @@ class FrontendCertController extends Controller
             $certNo = $request->certificatenumber;
             if (!empty($certNo)) {
                 $rules = array(
-                    'certificatenumber' => 'required|numeric|min:10',
+                    'certificatenumber' => 'required|min:10',
                 );
 
                 $validator = Validator::make(["certificatenumber" => $request->certificatenumber], $rules);
@@ -33,7 +33,12 @@ class FrontendCertController extends Controller
                 if ($validator->fails()) {
                     $result = ['success' => false, 'msg' => '', 'errors' => ['code' => '60', 'msg' => $validator->errors()->first()]];
                 } else {
-                    $certificate = Certificate::where('number', '=', $this->convertCertNumber($certNo))->first();
+                    if (strpos($certNo, '-') !== false) {
+                        $certificate = Certificate::where('number', '=', $certNo)->first();
+                    }
+                    else{
+                        $certificate = Certificate::where('number', '=', $this->convertCertNumber($certNo))->first();
+                    }
 
                     if (!empty($certificate)) {
                         $date = \Carbon\Carbon::parse($certificate->date)->format('d F Y');
