@@ -9,12 +9,12 @@
     }
 </style>
 
-<form class="academiccertificatecheckerform" action="/academic-verification/">
+<form class="academiccertificatecheckerform">
     <div class="form-group">
         Please enter the 10-digit number to authenticate the Credential that is certified by World Certification
         Institute.
         <br>
-        <input type="text" name="certificateno" class="resizedTextbox" placeholder="Enter the 10-digit number here">
+        <input type="text" name="certificatenumber" class="resizedTextbox" placeholder="Enter the 10-digit number here">
         <br />
         <input type="submit" value="Submit" class="btn-check-certificate">
     </div>

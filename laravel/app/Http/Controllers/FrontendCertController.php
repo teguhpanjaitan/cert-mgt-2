@@ -79,12 +79,6 @@ class FrontendCertController extends Controller
     private function convertCertNumber($number = "")
     {
         //format 1601-0005-49
-        if (ctype_digit($number) && strlen($number) == 10) {
-            $number = substr($number, 0, 4) . '-' .
-                substr($number, 4, 4) . '-' .
-                substr($number, 8);
-        }
-
-        return $number;
+        return implode("-", str_split($number, 4));
     }
 }
